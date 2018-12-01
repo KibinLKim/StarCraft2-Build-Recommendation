@@ -1,0 +1,86 @@
+﻿< 프로토스 유닛 >
+
+Probe - 탐사정
+Zealot - 광전사
+Stalker - 추적자
+Sentry - 파수기
+Observer - 관측선
+Immortal - 불멸자
+Warp Prism - 차원분광기
+Colossus - 거신
+Phoenix - 불사조
+Void Ray - 공허포격기
+High Templar - 고위기사
+Dark Templar - 암흑기사
+Archon - 집정관
+Carrier - 우주모함
+Mothership - 모선
+Mothership Core - 모선핵
+Oracle - 예언자
+Tempest - 폭풍함
+Adept - 사도
+Disruptor - 분열기
+
+< 프로토스 구조물 >
+
+Nexus - 연결체
+Pylon - 수정탑
+Assimilator - 융화소
+Gateway - 관문
+Forge - 제련소
+Cybernectics Core - 인공제어소
+Photon Cannon - 광자포
+Twilight Council - 황혼의회
+Dark Shrine - 암흑성소
+Templar Archive - 기사단기록보관소
+Stargate - 우주관문
+Fleet Beacon - 함대 신호소
+Robotics Support Bay - 로봇공학시설
+Robotics Bay - 로복공학지원소
+ - 보호막충전소
+
+< 테란 유닛 >
+
+SCV - 건설로봇
+Marine - 해병
+Marauder - 불곰
+Reaper - 사신
+Ghost - 유령
+Hellion - 화염차
+Siege Tank - 공성전차
+Thor - 토르
+Viking - 바이킹
+Medivac - 의료선
+Raven - 밤까마귀
+Banshee - 밴시
+Battlecruiser - 전투순양함
+Hellbat - 화염기갑병
+Window Mine - 땅거미지뢰
+Liberator - 해방선
+Cyclone - 사이클론
+
+< 테란 구조물 >
+
+< 저그 유닛 >
+
+Larva - 애벌레
+Drone - 일벌레
+Overload - 대군주
+Zergling - 저글링
+Queen - 여왕
+Hydralisk - 히드라리스크
+Baneling - 맹독충
+Overseer - 감시군주
+Roach - 바퀴
+Infestor - 감염충
+Mutalisk - 뮤탈리스크
+Corruptor - 타락귀
+Nydus Worm - 땅굴벌레
+Ultralisk - 울트라리스크
+Brood Lord - 무리군주
+Swarm Host - 군단숙주
+Viper - 살모사
+Ravager - 궤멸충
+Lurker - 가시지옥
+
+< 저그 구조물 >
