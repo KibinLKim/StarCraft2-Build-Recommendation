@@ -13,6 +13,19 @@ var fs=require('fs');//파일시스템 사용
 //var param={};
 //var urltype=require('url');
 //
+//class MatchHistory{
+//  @SerializedName("matches")
+//  public List<Matches> matches;
+//class Matches{
+//  @SerializedName("map")
+//  public String map;
+//  @SerializedName("type")
+//  public String type;
+//  @SerializedName("decision")
+//  public String decision;
+//}
+//}
+
 r.question("분석을 원하는 아이디를 입력하세요 : ",function(answer){//question메소드에서 callback함수 생성
   console.log("입력완료! 분석중...");//callback함수란 이벤트가 왔을 때 실행되는 함수이다. answer에 검색을 원하는 아이디가 담겨있다.
   rtfw1=rtfw1+answer;//검색 url 구성
@@ -86,6 +99,19 @@ request(match_history_url,(error,response,body)=>{
   if(error){throw error};
   console.log('request3 processing');
   //console.log(body); //테스트용: response body 출력
+  //JsonParser jsonParser=new JsonParser();
+  //JsonObject jsonObject=(JsonObject) jsonParser.parse(json);
+  //JsonObject matches=(JsonObject) jsonObject.get("matches");
+  //System.out.print(matches.get("map"));
+
+//MatchHistory matchhistory=new Gson().fromJson(json,MatchHistory.class);
+//for(MatchHistory.Matches matches : matchhistory.matches){
+//  System.out.println(matches.map);
+//  System.out.println(matches.type);
+//  System.out.println(matches.decision);
+//}
+var jsonstring=JSON.stringify(body);//json형식의 string으로 변환
+console.log(jsonstring);//테스트용 : jsontext에 바디가 적절히 들어가는지 검사
 });//request3종료
 });//request2종료
 //  }catch(error){
