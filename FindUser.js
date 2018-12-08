@@ -1,14 +1,16 @@
 var readline=require('readline');//입력받기 위한 모듈
 var r=readline.createInterface({input:process.stdin,output:process.stdout});//키보드 입출력 정의
 var rtfw="http://www.rankedftw.com/search/?name=";//rtfw에서 기본 검색 url
+var league='silver_2';
+var region='KR';
 //
 var cheerio=require('cheerio');//cheerio모듈 사용
 var request=require('request');//request모듈 사용
 var fs=require('fs');//파일시스템 사용
 //
-var client=require('cheerio-httpcli');
-var param={};
-var urltype=require('url');
+//var client=require('cheerio-httpcli');
+//var param={};
+//var urltype=require('url');
 //
 r.question("분석을 원하는 아이디를 입력하세요 : ",function(answer){//question메소드에서 callback함수 생성
   console.log("입력완료! 분석중...");//callback함수란 이벤트가 왔을 때 실행되는 함수이다. answer에 검색을 원하는 아이디가 담겨있다.
@@ -31,11 +33,19 @@ request(rtfw,(error,response,body)=>{
   let $ = cheerio.load(body);//rtfw가 body이다. $로 jquery방식으로 html탐색
   try{
     let username='';
+    let userleague='';
+    let userregion='';
     let usernumber='';
-    $('a').find('li').each(function(index,elem){
+    $('ul').find('a').each(function(index,elem){
         username=$(this).find('.name').text().trim();
-        if(username===answer){
+        userleague=$(this).find('.league').text().trim();
+        userregion=$(this).find('.region').text().trim();
+        if((username===answer)&&(userregion===region)){//아직 리그 구현 안함
         console.log(`${username}`);
+        console.log(`${userregion}`);
+        //usernumber=$("a[href^='/player/']").text().trim();
+        usernumber=$(this).toString().slice(29,40);
+        console.log(`${usernumber}`);
         }
 
 
