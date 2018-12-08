@@ -28,24 +28,28 @@ r.question("분석을 원하는 아이디를 입력하세요 : ",function(answer
   //
 //  var parsing_html=fs.readFile(rtfw,'utf8',(err,data)=>{//html reading fs 사용
 //err? console.log(err) : console.log('okay cheerio!');//에러나면 에러출력, 이외엔 okay 메시지
-request(rtfw,(error,response,body)=>{
-  if(error){throw error};
+request(rtfw,(error,response,body)=>{//rtfw url 불러오기
+  if(error){throw error};//에러처리
   let $ = cheerio.load(body);//rtfw가 body이다. $로 jquery방식으로 html탐색
-  try{
-    let username='';
-    let userleague='';
-    let userregion='';
-    let usernumber='';
-    $('ul').find('a').each(function(index,elem){
-        username=$(this).find('.name').text().trim();
-        userleague=$(this).find('.league').text().trim();
-        userregion=$(this).find('.region').text().trim();
-        if((username===answer)&&(userregion===region)){//아직 리그 구현 안함
-        console.log(`${username}`);
-        console.log(`${userregion}`);
-        //usernumber=$("a[href^='/player/']").text().trim();
-        usernumber=$(this).toString().slice(29,40);
-        console.log(`${usernumber}`);
+  try{//try_catch구문
+    let username='';//username문자열 선언
+    let userleague='';//userleague 문자열 선언
+    let userregion='';//userregion 문자열 선언
+    let usernumber='';//usernumber 문자열 선언
+    $('ul').find('a').each(function(index,elem){//ul 태그 아래 a태그를 찾는다.
+        username=$(this).find('.name').text().trim();//name클래스를 찾아 공백빼고 텍스트화
+        userleague=$(this).find('.league').text().trim();//league클래스를 찾아 공백빼고 텍스트화
+        userregion=$(this).find('.region').text().trim();//region클래스를 찾아 공백빼고 텍스트화
+        if((username===answer)&&(userregion===region)){//아직 리그 구현 안함-리그는 그림으로 비교
+        console.log(`${username}`);//테스트용 : 유저네임 출력
+        console.log(`${userregion}`);//테스트용 : 유저리전 출력
+        var localnumber=$(this).toString().slice(29,43);//rtfw에서 사용하는 사용자번호를 문자열로 넉넉히 자름
+        var localindex1=localnumber.search('/');//첫번째 슬레시 발견하는 인덱스 검출
+        localnumber=localnumber.slice(localindex1+1);//앞부분 슬래시 자른다.
+        var localindex2=localnumber.search('/')-localindex1+1;//두번째 슬레시 발견하는 인덱스 검출
+        localnumber=localnumber.slice(0,localindex2);//뒷부분 슬래시 자른다.
+        console.log(`${localnumber}`);//테스트용 : 로컬넘버 출력
+
         }
 
 
