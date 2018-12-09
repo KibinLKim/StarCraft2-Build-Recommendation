@@ -89,7 +89,7 @@ request(rtfw1,(error,response,body)=>{//rtfw url 불러오기
       profileID=profileID.slice(0,localindex4);//뒷부분 슬래시 자른다.
       console.log(`${profileID}`);//테스트용 : profileID 출력
     });//a bnetlink 종료
-console.log(`${profileID}`);//테스트용 : profileID 출력
+//console.log(`${profileID}`);//테스트용 : profileID 출력
 
 var match_history_1="https://kr.api.blizzard.com/sc2/legacy/profile/3/1/"
 var match_history_2="/matches?access_token=US0q3wV6W1fIYZmRnEBbNvUrRHYZhwANIi"
@@ -97,7 +97,7 @@ var match_history_url=match_history_1+profileID+match_history_2;
 console.log(match_history_url);
 request(match_history_url,(error,response,body)=>{
   if(error){throw error};
-  console.log('request3 processing');
+  console.log('request3-1 processing');
   //console.log(body); //테스트용: response body 출력
   //JsonParser jsonParser=new JsonParser();
   //JsonObject jsonObject=(JsonObject) jsonParser.parse(json);
@@ -111,10 +111,9 @@ request(match_history_url,(error,response,body)=>{
 //  System.out.println(matches.decision);
 //}
 
-var obj=JSON.parse(body);//request 결과를 JSON object로 변환
-//  console.log(obj);
+var obj1=JSON.parse(body);//request 결과를 JSON object로 변환
 //console.log(obj.matches [0].map);//테스트용 : 하나에 접근
-$(obj.matches).each(function(index,match){//body에서 각각의 배열요소 match들과 인덱스 사용
+$(obj1.matches).each(function(index,match){//body에서 각각의 배열요소 match들과 인덱스 사용
   if(match.type=='1v1'){//경기타입이 1대1인 경우에만 관심있다.
     console.log(index+":::",match.decision,match.map);//인덱스와 승패, 맵 표시
 };//if 1v1 종료
@@ -122,8 +121,43 @@ $(obj.matches).each(function(index,match){//body에서 각각의 배열요소 ma
 //var jsonstring=JSON.stringify(body);//json형식의 string으로 변환
 //console.log(jsonstring);//테스트용 : jsontext에 바디가 적절히 들어가는지 검사
 
+});//request3-1종료
+var ladder_1="https://kr.api.blizzard.com/sc2/legacy/profile/3/1/"
+var ladder_2="/ladders?access_token=US0q3wV6W1fIYZmRnEBbNvUrRHYZhwANIi";
+var ladder_url=ladder_1+profileID+ladder_2;
+console.log(ladder_url);
+request(ladder_url,(error,response,body)=>{
+  if(error){throw error};
+  console.log('request3-2 processing');
+  var obj2=JSON.parse(body);//request 결과를 JSON object로 변환
+  //console.log(obj2.currentSeason [1].ladder[0].wins);//테스트용 : 하나에 접근
+  var wins=obj2.currentSeason[1].ladder[0].wins;
+  var losses=obj2.currentSeason[1].ladder[0].losses;
+  var winrate=wins/(wins+losses);
+    console.log(wins);
+    console.log(losses);
+    console.log(winrate);
+});//request3-2종료
 
-});//request3종료
+var profile_1="https://kr.api.blizzard.com/sc2/legacy/profile/3/1/";
+var profile_2="?access_token=US0q3wV6W1fIYZmRnEBbNvUrRHYZhwANIi";
+var profile_url=profile_1+profileID+profile_2;
+console.log(profile_url);
+request(profile_url,(error,response,body)=>{
+  if(error){throw error};
+  console.log('request3-3 processing');
+  var obj3=JSON.parse(body);//request 결과를 JSON object로 변환
+  //console.log(obj2.currentSeason [1].ladder[0].wins);//테스트용 : 하나에 접근
+  var primary_race=obj3.career.primaryRace;
+    console.log(primary_race);
+  var terran_level=obj3.swarmLevels.terran.level;
+  var zerg_level=obj3.swarmLevels.zerg.level;
+  var protoss_level=obj3.swarmLevels.protoss.level;
+      console.log(terran_level);
+      console.log(zerg_level);
+      console.log(protoss_level);
+});//request3-3종료
+
 });//request2종료
 //  }catch(error){
 //    console.error(error);
