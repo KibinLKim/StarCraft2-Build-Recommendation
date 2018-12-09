@@ -110,8 +110,19 @@ request(match_history_url,(error,response,body)=>{
 //  System.out.println(matches.type);
 //  System.out.println(matches.decision);
 //}
-var jsonstring=JSON.stringify(body);//json형식의 string으로 변환
-console.log(jsonstring);//테스트용 : jsontext에 바디가 적절히 들어가는지 검사
+
+var obj=JSON.parse(body);//request 결과를 JSON object로 변환
+//  console.log(obj);
+//console.log(obj.matches [0].map);//테스트용 : 하나에 접근
+$(obj.matches).each(function(index,match){//body에서 각각의 배열요소 match들과 인덱스 사용
+  if(match.type=='1v1'){//경기타입이 1대1인 경우에만 관심있다.
+    console.log(index+":::",match.decision,match.map);//인덱스와 승패, 맵 표시
+};//if 1v1 종료
+});//each function 종료
+//var jsonstring=JSON.stringify(body);//json형식의 string으로 변환
+//console.log(jsonstring);//테스트용 : jsontext에 바디가 적절히 들어가는지 검사
+
+
 });//request3종료
 });//request2종료
 //  }catch(error){
