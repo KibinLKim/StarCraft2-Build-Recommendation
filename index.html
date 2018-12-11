@@ -1,20 +1,59 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko-kr">
 <head>
+	<style>
+		.menu a{cursor:pointer;}
+		.menu .hide{display:none;}
+		body{
+			background-color: black;
+			backgound-repeat: no-repeat;
+			backgound-size: cover;
+		}
+	</style>
 	<meta charset="utf-8">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="/static/core/style.css" rel="stylesheet" media="screen">
-    <script async="" src="//www.google-analytics.com/analytics.js"></script>
+		<script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+		<script type="text/javascript">
+			$().ready(function(){
+				alert("jquery is running");
+			});
+		</script>
+		<script async="" src="//www.google-analytics.com/analytics.js"></script>
     <script type="text/javascript" async="" src="//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js"></script>
 	<title>StarCraft 2 Build Recommendation Project</title>
-<body>
+	<script>
+    $(document).ready(function(){
+        $(".menu>a").click(function(){
+            var submenu = $(this).next("ul");
+            if( submenu.is(":visible") ){
+                submenu.slideUp();
+            }else{
+                submenu.slideDown();
+            }
+        });
+    });
+	</script>
 
+<body>
 <p stype="fond-family:verdana;">StarCraft 2 Build Recommendation Project</p>
+<br>
+<br>
 <img src="/imgs" alt="StarCraft2 LOGO image">
-<br>
-<br>
 <div class="col-md-3">
 	<form id="searchform" action method="get">
+		<div id="div_id_myRace" class="form-group">
+			<label for="id_myRace" class="control-label ">
+                내 종족
+          </label>
+          <div class="controls">
+            <select class="select form-control" id="id_myRace" name="myRace">
+           	 	<option value="t">테란</option>
+            	<option value="r">저그</option>
+            	<option value="a">프로토스</option>
+            </select>
+					</div>
+			</div>
 		<div id="div_id_name" class="form-group">
 			<label for="id_name" class="control-label ">
 								유저 이름
@@ -76,6 +115,26 @@
 									<option value="gm">그랜드마스터</option>
 		            </select>
 							</div>
+					</div>
+					<div>
+						<ul>
+							<li class="menu1">
+								<a>img src="" alt="메뉴이미지1"/></a>
+								<ul class="hide">
+									<li>리스트1-1</li>
+									<li>리스트1-2></li>
+									<li>리스트1-3></li>
+								</ul>
+							</li>
+							<li class="menu2">
+								<a>img src="" alt="메뉴이미지2"/></a>
+								<ul class="hide">
+									<li>리스트2-1</li>
+									<li>리스트2-2></li>
+									<li>리스트2-3></li>
+								</ul>
+							</li>
+						</ul>
 					</div>
 
 <a class="btn btn-primary" href="/build/create/">빌드</a>
