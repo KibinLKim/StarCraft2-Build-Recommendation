@@ -16,6 +16,13 @@ app.get('/', function(req,res){
   });
 });
 
+app.get('/build/create', function(req,res){
+  fs.readFile('build_index.html',function(err,data){
+    res.writeHead(200,{'Content-Type':'text/html'});
+    res.end(data);
+  });
+});
+
 app.get('/imgs',function(req,res){
   fs.readFile('logoIMG.jpg',function(err,data){
     res.writeHead(200,{'Content-Type':'text/html'});

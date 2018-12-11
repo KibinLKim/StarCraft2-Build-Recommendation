@@ -1,29 +1,18 @@
 <!DOCTYPE html>
 <html lang="ko-kr">
 <head>
-	<style>
-		.menu a{cursor:pointer;}
-		.menu .hide{display:none;}
-	</style>
 	<meta charset="utf-8">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="/static/core/style.css" rel="stylesheet" media="screen">
 		<script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
 		<script type="text/javascript">
 			$().ready(function(){
-				alert("jquery is running");
+				alert("StarCraft2 Build Recommendation Project");
 			});
 		</script>
 		<script async="" src="//www.google-analytics.com/analytics.js"></script>
     <script type="text/javascript" async="" src="//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js"></script>
 	<title>StarCraft 2 Build Recommendation Project</title>
-	<script>
-    $(document).ready(function(){
-        $(".menu>a").click(function(){
-            $(this).next("ul").toggleClass("hide");
-        });
-    });
-	</script>
 
 <body>
 <p stype="fond-family:verdana;">StarCraft 2 Build Recommendation Project</p>
@@ -108,36 +97,6 @@
 					</div>
 
 <a class="btn btn-primary" href="/build/create/">빌드</a>
-<br>
-<br>
-<div>
-	<ul>
-		<li class="menu">
-			<a><img src="" alt="상위메뉴이미지1"/></a>
-			<ul class="hide">
-				<li>메뉴1-1</li>
-				<li>메뉴1-2</li>
-				<li>메뉴1-3</li>
-				<li>메뉴1-4</li>
-				<li>메뉴1-5</li>
-				<li>메뉴1-6</li>
-			</ul>
-		</li>
-
-		<li class="menu">
-			<a><img src="" alt="상위메뉴이미지2"/></a>
-			<ul class="hide">
-				<li>메뉴2-1</li>
-				<li>메뉴2-2</li>
-				<li>메뉴2-3</li>
-				<li>메뉴2-4</li>
-				<li>메뉴2-5</li>
-				<li>메뉴2-6</li>
-			</ul>
-		</li>
-	</ul>
-</div>
-
 <br>
 <br>
 <a href="https://starcraft2.com/ko-kr/game">Official Site</a>
