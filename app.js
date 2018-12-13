@@ -1,7 +1,43 @@
-//http연동
+//Site
+var http = require('http');
+var fs = require('fs');
+var jsdom = require('jsdom');
+//var $ = require('jquery');
+var path=require('path');
+//Site end
 var express=require('express');
 var app=express();
 var router=require('./router/main')(app);
+var bodyParser=require('body-parser');
+var querystring=require('querystring');
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+
+//Site
+app.use(express.static('public'));
+app.use('/node_modules', express.static(path.join(__dirname,'/node_modules')));
+
+app.get('/', function(req,res){
+  fs.readFile('index.ejs',function(err,data){
+    res.writeHead(200,{'Content-Type':'text/html'});
+    res.end(data);
+  });
+});
+
+app.get('/build/create', function(req,res,next){
+  fs.readFile('index.ejs',function(err,data){
+    res.writeHead(200,{'Content-Type':'text/html'});
+    res.end(data);
+  });
+});
+
+app.get('/imgs',function(req,res){
+  fs.readFile('logoIMG.jpg',function(err,data){
+    res.writeHead(200,{'Content-Type':'text/html'});
+    res.end(data);
+  });
+});
+//Site end
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');

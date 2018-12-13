@@ -1,8 +1,14 @@
 module.exports = function(app,fs)
 {
      app.get('/',function(req,res){
-       var test='test';
-res.render('example.ejs',{data:test});
+      var test='333333333333';
+res.render('index',{length: test});
+
+
+});
+
+app.get('/build/create',function(req,res,next){
+
 
         var readline=require('readline');//입력받기 위한 모듈
         var r=readline.createInterface({input:process.stdin,output:process.stdout});//키보드 입출력 정의
@@ -48,8 +54,13 @@ res.render('example.ejs',{data:test});
         var enemyrace;//상대 종족
         var recommend;//추천빌드(운영/타이밍/올인)
         //
+//var answer=req.getParameter("name");
+var answer=req.query.name;
+answer=answer.toString();
+console.log("query"+answer);
 
-        r.question("분석을 원하는 아이디를 입력하세요 : ",function(answer){//question메소드에서 callback함수 생성
+
+//        r.question("분석을 원하는 아이디를 입력하세요 : ",function(answer){//question메소드에서 callback함수 생성
           //question은 에러 제어 만들면 안된다.
           console.log("r.question processing");//callback함수란 이벤트가 왔을 때 실행되는 함수이다. answer에 검색을 원하는 아이디가 담겨있다.
           rtfw1=rtfw1+answer;//검색 url 구성
@@ -58,6 +69,7 @@ res.render('example.ejs',{data:test});
         request(rtfw1,(error,response,body)=>{//rtfw url 불러오기 request 1
           if(error){throw error};//에러처리
           console.log("request 1 processing");
+          console.log(body);
           let $ = cheerio.load(body);//rtfw가 body이다. $로 jquery방식으로 html탐색
             $('ul').find('a').each(function(index,elem){//ul 태그 아래 a태그를 찾는다.
                 username=$(this).find('.name').text().trim();//name클래스를 찾아 공백빼고 텍스트화
@@ -208,7 +220,7 @@ res.render('example.ejs',{data:test});
         console.log("상대의 주 종족은 '"+primary_race+"'입니다.");
         console.log("상대의 이번 시즌 전체 승률은 '"+win_rate+"'입니다.");
         //
-
+res.render('index',{length: momentum});
         //build recommend command
 
         //
@@ -226,8 +238,8 @@ res.render('example.ejs',{data:test});
 
         console.log('r.question done');
         //console.log(terran_level);
-        r.close()//반드시 close를 해줘야 한다.사용이 다 끝난 후에.
-        });//r.question 끝
+//        r.close()//반드시 close를 해줘야 한다.사용이 다 끝난 후에.
+//        });//r.question 끝
 
 
 

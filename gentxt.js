@@ -1,3 +1,4 @@
+/*
 var fs = require('fs');//파일 시스템
 var readline=require('readline')//readline 모듈
 var file = 'target.txt';//파일은 타겟.텍스트이다.
@@ -18,3 +19,4 @@ fs.open(file, 'r+', function(err,fd){//파일을 읽쓰 모드로 열고 없으�
     })
   })
 })
+*/

@@ -1,3 +1,4 @@
+
 var readline=require('readline');//입력받기 위한 모듈
 var r=readline.createInterface({input:process.stdin,output:process.stdout});//키보드 입출력 정의
 var rtfw1="http://www.rankedftw.com/search/?name=";//rtfw에서 기본 검색 url
