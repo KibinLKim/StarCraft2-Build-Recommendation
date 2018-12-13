@@ -98,7 +98,7 @@ res.render('example.ejs',{data:test});
         //console.log(`${profileID}`);//테스트용 : profileID 출력
 
         var match_history_1="https://kr.api.blizzard.com/sc2/legacy/profile/3/1/"//매치히스토리 url 앞부분
-        var match_history_2="/matches?access_token=US0q3wV6W1fIYZmRnEBbNvUrRHYZhwANIi"//매치히스토리 url 뒷부분
+        var match_history_2="/matches?access_token=US115TlhyMaYe3d3v4t6j17Umw1CfsvCIV"//매치히스토리 url 뒷부분
         var match_history_url=match_history_1+profileID+match_history_2;//매치히스토리 url 구성
         console.log(match_history_url);//테스트용 : 매치히스토리 url 출력
 
@@ -106,7 +106,7 @@ res.render('example.ejs',{data:test});
           if(error){throw error};//에러처리
           console.log('request3 processing');//테스트용 : request 작동여부 출력
 
-        var obj1=JSON.parse(body);//request 결과를 JSON object로 변환
+        var obj1=JSON.parse(body);//request 결과를 JSON objerct로 변환
         //console.log(obj.matches [0].map);//테스트용 : 하나에 접근
         $(obj1.matches).each(function(index,match){//body에서 각각의 배열요소 match들과 인덱스 사용
           if(match.type=='1v1'){//경기타입이 1대1인 경우에만 관심있다.
@@ -115,28 +115,30 @@ res.render('example.ejs',{data:test});
         });//each function 종료
 
         var ladder_1="https://kr.api.blizzard.com/sc2/legacy/profile/3/1/"
-        var ladder_2="/ladders?access_token=US0q3wV6W1fIYZmRnEBbNvUrRHYZhwANIi";
+        var ladder_2="/ladders?access_token=US115TlhyMaYe3d3v4t6j17Umw1CfsvCIV";
         var ladder_url=ladder_1+profileID+ladder_2;
         console.log(ladder_url);
         request(ladder_url,(error,response,body)=>{//ladder request request 4
           if(error){throw error};
           console.log('request4 processing');
           var obj2=JSON.parse(body);//request 결과를 JSON object로 변환
+          //console.log(body);
         //  console.log(obj2.currentSeason [2].ladder[0].wins);//테스트용 : 하나에 접근
-          var wins=obj2.currentSeason[2].ladder[0].wins;
-          var losses=obj2.currentSeason[2].ladder[0].losses;
+          var wins=obj2.currentSeason[3].ladder[0].wins;
+          var losses=obj2.currentSeason[3].ladder[0].losses;
         win_rate=wins/(wins+losses);
             //console.log(wins);
             //console.log(losses);
             //console.log(win_rate);
 
         var profile_1="https://kr.api.blizzard.com/sc2/legacy/profile/3/1/";
-        var profile_2="?access_token=US0q3wV6W1fIYZmRnEBbNvUrRHYZhwANIi";
+        var profile_2="?access_token=US115TlhyMaYe3d3v4t6j17Umw1CfsvCIV";
         var profile_url=profile_1+profileID+profile_2;
         console.log(profile_url);
         request(profile_url,(error,response,body)=>{//profile request request 5
           if(error){throw error};
           console.log('request5 processing');
+          //console.log(body);
           var obj3=JSON.parse(body);//request 결과를 JSON object로 변환
           //console.log(obj2.currentSeason [1].ladder[0].wins);//테스트용 : 하나에 접근
         primary_race=obj3.career.primaryRace;
