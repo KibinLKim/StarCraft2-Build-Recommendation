@@ -241,18 +241,109 @@ js_win_rate="상대의 이번 시즌 전체 승률은 '"+win_rate+"'입니다.";
 
 var js_recommend_build_1;
 var js_recommend_build_2;
-js_recommend_build_1 = fs.readFileSync('./PvP/AllIn/PvP_Allin1_DTRush.txt', 'utf8').toString().split("\n");
+
 var build_address_1='./';
 var build_address_2='./';
 
 var strategy;
+if((myrace=='protoss')&&(enemyrace=='protoss')){
+if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
+  strategy='Economic';
+}else if(momentum=='상승세'||protoss_proficiency=='숙련자'){
+  strategy='Allin';
+}else{
+  strategy='TimingAttack';
+}
+}else if((myrace=='protoss')&&(enemyrace=='terran')){
+  if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
+    strategy='economic';
+  }else if(momentum=='상승세'||protoss_proficiency=='숙련자'){
+    strategy='Allin';
+  }else{
+    strategy='TimingAttack';
+  }
+}else if((myrace=='protoss')&&(enemyrace=='zerg')){
+  if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
+    strategy='economic';
+  }else if(momentum=='상승세'||protoss_proficiency=='숙련자'){
+    strategy='Allin';
+  }else{
+    strategy='TimingAttack';
+  }
+}else if((myrace=='terran')&&(enemyrace=='protoss')){
+  if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
+    strategy='economic';
+  }else if(momentum=='상승세'||protoss_proficiency=='숙련자'){
+    strategy='Allin';
+  }else{
+    strategy='TimingAttack';
+  }
+}else if((myrace=='terran')&&(enemyrace=='terran')){
+  if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
+    strategy='economic';
+  }else if(momentum=='상승세'||protoss_proficiency=='숙련자'){
+    strategy='Allin';
+  }else{
+    strategy='TimingAttack';
+  }
+}else if((myrace=='terran')&&(enemyrace=='zerg')){
+  if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
+    strategy='economic';
+  }else if(momentum=='상승세'||protoss_proficiency=='숙련자'){
+    strategy='Allin';
+  }else{
+    strategy='TimingAttack';
+  }
+}else if((myrace=='zerg')&&(enemyrace=='protoss')){
+  if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
+    strategy='economic';
+  }else if(momentum=='상승세'||protoss_proficiency=='숙련자'){
+    strategy='Allin';
+  }else{
+    strategy='TimingAttack';
+  }
+}else if((myrace=='zerg')&&(enemyrace=='terran')){
+  if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
+    strategy='economic';
+  }else if(momentum=='상승세'||protoss_proficiency=='숙련자'){
+    strategy='Allin';
+  }else{
+    strategy='TimingAttack';
+  }
+}else{//저저전
+  if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
+    strategy='Economic';
+  }else if(momentum=='상승세'||protoss_proficiency=='숙련자'){
+    strategy='Allin';
+  }else{
+    strategy='TimingAttack';
+  }
+}
 
-build_address_1=build_address_1+myrace+'v'+enemyrace'/'+strategy+'/'+myrace+'v'+enemyrace+'_'
+var myrace_inbuild;
+if(myrace=='protoss'){
+ myrace_inbuild='P';
+}else if(myrace=='terran'){
+ myrace_inbuild='T';
+}else{
+ myrace_inbuild='Z';
+}
 
+var enemyrace_inbuild;
+if(enemyrace=='protoss'){
+ enemyrace_inbuild='P';
+}else if(enemyrace=='terran'){
+ enemyrace_inbuild='T';
+}else{
+ enemyrace_inbuild='Z';
+}
 
+build_address_1=build_address_1+myrace_inbuild+'v'+enemyrace_inbuild+'/'+strategy+'/'+myrace_inbuild+'v'+enemyrace_inbuild+'_'+strategy+'1.txt';
+build_address_2=build_address_2+myrace_inbuild+'v'+enemyrace_inbuild+'/'+strategy+'/'+myrace_inbuild+'v'+enemyrace_inbuild+'_'+strategy+'2.txt';
+console.log(build_address_1);
+js_recommend_build_1 = fs.readFileSync(build_address_1, 'utf8').toString().split("\n");
+js_recommend_build_2 = fs.readFileSync(build_address_2, 'utf8').toString().split("\n");
 
-fs.readFileSync('./PvP/Allin/PvP_in1_DTRush.txt','utf8');
-fs.readFileSync('./PvP/Allin/PvP_in1_DTRush.txt','utf8');
 //경로는 app.js기준
 
 res.render('index',{top: '분석 결과',
