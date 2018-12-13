@@ -1,16 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko-kr">
 <head>
-	<style>
-	#myHeader {
-		background-color: lightblue;
-		color: black;
-		padding: 10px;
-		text-align: center;
-	}
-	</style>
-
-<h5 id="myHeader">StarCraft 2 Build Recommendation Project</h5>
 	<meta charset="utf-8">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="/static/core/style.css" rel="stylesheet" media="screen">
@@ -19,7 +9,13 @@
 		<script async="" src="//www.google-analytics.com/analytics.js"></script>
     <script type="text/javascript" async="" src="//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js"></script>
 	<title>StarCraft 2 Build Recommendation Project</title>
+
 <body>
+
+
+
+
+<p stype="fond-family:verdana;">StarCraft 2 Build Recommendation Project</p>
 
 <img src="/imgs" alt="StarCraft2 LOGO image">
 <div class="col-md-3">
@@ -59,7 +55,7 @@
 									상대 종족
 						</label>
 						<div class="controls">
-							<select class="select form-control" id="id_race" name="race">
+							<select class="select form-control" id="id_race" name="enemyRace">
 								<option value="terran">테란</option>
 								<option value="zerg">저그</option>
 								<option value="protoss">프로토스</option>
@@ -72,23 +68,35 @@
 								상대 아이디
 					</label>
 					<div class="controls">
-						<input class="textinput textInput form-control" id="id_name" maxlength="20" name="name" type="text">
+						<input class="textinput textInput form-control" id="id_name" maxlength="20" name="enemyName" type="text">
 					</div>
 		</div>
+
+
 
 <input value="빌드 추천!" type="submit"/>
 </form>
 
 <%= top%>
 <br>
-<%=ejs_momentum%>
-<%=ejs_terran_proficiency%>
-<%=ejs_zerg_proficiency%>
-<%=ejs_protoss_proficiency%>
-<%=ejs_primary_race%>
+<%=ejs_momentum%><br>
+<%=ejs_terran_proficiency%><br>
+<%=ejs_zerg_proficiency%><br>
+<%=ejs_protoss_proficiency%><br>
+<%=ejs_primary_race%><br>
 <%=ejs_win_rate%>
 <br>
+<h3>
+					추천빌드 1 :
+</h3>
+<%=ejs_recommend_build_1%>
 <br>
+<h3>
+					추천빌드 2 :
+</h3>
+<%=ejs_recommend_build_2%>
+<br>
+
 <a href="https://starcraft2.com/ko-kr/game">Official Site</a>
 
 </body>

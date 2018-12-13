@@ -7,7 +7,9 @@ ejs_terran_proficiency: ' ',
 ejs_zerg_proficiency: ' ',
 ejs_protoss_proficiency: ' ',
 ejs_primary_race: ' ',
-ejs_win_rate: ' '});
+ejs_win_rate: ' ',
+ejs_recommend_build_1: ' ',
+ejs_recommend_build_2: ' '});
 });
 
 app.get('/recommend',function(req,res,next){
@@ -237,6 +239,13 @@ js_protoss_proficiency="상대는 프로토스 '"+protoss_proficiency+"'입니�
 js_primary_race="상대의 주 종족은 '"+primary_race+"'입니다.";
 js_win_rate="상대의 이번 시즌 전체 승률은 '"+win_rate+"'입니다.";
 
+fs.readFile('/PvP/Allin/PvP_AllIn1_DTRush.txt','utf8',function(err,data){
+  js_recommend_build_1=data;
+})
+
+
+
+
 
 res.render('index',{top: '분석 결과',
 ejs_momentum: js_momentum,
@@ -244,7 +253,9 @@ ejs_terran_proficiency: js_terran_proficiency,
 ejs_zerg_proficiency: js_zerg_proficiency,
 ejs_protoss_proficiency: js_protoss_proficiency,
 ejs_primary_race: js_primary_race,
-ejs_win_rate: js_win_rate});
+ejs_win_rate: js_win_rate,
+ejs_recommend_build_1: ' ',
+ejs_recommend_build_2: ' '});
         //build recommend command
 
         //
