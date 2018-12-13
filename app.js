@@ -24,7 +24,7 @@ app.get('/', function(req,res){
   });
 });
 
-app.get('/build/create', function(req,res,next){
+app.get('/recommend', function(req,res,next){
   fs.readFile('index.ejs',function(err,data){
     res.writeHead(200,{'Content-Type':'text/html'});
     res.end(data);

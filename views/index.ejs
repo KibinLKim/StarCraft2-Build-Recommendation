@@ -5,11 +5,7 @@
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="/static/core/style.css" rel="stylesheet" media="screen">
 		<script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
-		<script type="text/javascript">
-			$().ready(function(){
-				alert("StarCraft2 Build Recommendation Project");
-			});
-		</script>
+
 		<script async="" src="//www.google-analytics.com/analytics.js"></script>
     <script type="text/javascript" async="" src="//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js"></script>
 	<title>StarCraft 2 Build Recommendation Project</title>
@@ -21,11 +17,52 @@
 
 <p stype="fond-family:verdana;">StarCraft 2 Build Recommendation Project</p>
 
-<br>
-<br>
 <img src="/imgs" alt="StarCraft2 LOGO image">
 <div class="col-md-3">
-	<form action="/build/create" id="searchform" action method="get">
+	<form action="/recommend" id="searchform" action method="get">
+
+		<div id="div_id_server" class="form-group">
+			<label for="id_server" class="control-label ">
+								서버
+					</label>
+					<div class="controls">
+						<select class="select form-control" id="id_server" name="region">
+							<option value="KR">한국/대만</option>
+							<option value="AM">미국</option>
+							<option value="CN">중국</option>
+							<option value="EU">유럽</option>
+						</select>
+					</div>
+			</div>
+
+
+
+		<div id="div_id_myRace" class="form-group">
+			<label for="id_myRace" class="control-label ">
+                내 종족
+          </label>
+          <div class="controls">
+            <select class="select form-control" id="id_myRace" name="myRace">
+           	 	<option value="terran">테란</option>
+            	<option value="zerg">저그</option>
+            	<option value="protoss">프로토스</option>
+            </select>
+					</div>
+			</div>
+
+			<div id="div_id_race" class="form-group">
+				<label for="id_race" class="control-label ">
+									상대 종족
+						</label>
+						<div class="controls">
+							<select class="select form-control" id="id_race" name="race">
+								<option value="terran">테란</option>
+								<option value="zerg">저그</option>
+								<option value="protoss">프로토스</option>
+							</select>
+						</div>
+				</div>
+
 		<div id="div_id_name" class="form-group">
 			<label for="id_name" class="control-label ">
 								상대 아이디
@@ -40,10 +77,14 @@
 <input value="빌드 추천!" type="submit"/>
 </form>
 
-<%= length%>
-
-
-<a class="btn btn-primary" href="/build/create/">빌드</a>
+<%= top%>
+<br>
+<%=ejs_momentum%>
+<%=ejs_terran_proficiency%>
+<%=ejs_zerg_proficiency%>
+<%=ejs_protoss_proficiency%>
+<%=ejs_primary_race%>
+<%=ejs_win_rate%>
 <br>
 <br>
 <a href="https://starcraft2.com/ko-kr/game">Official Site</a>
