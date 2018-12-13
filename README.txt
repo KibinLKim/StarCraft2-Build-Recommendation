@@ -9,7 +9,14 @@ Branch를 master + 3가지(API, Build_Data, Site)로 나눠서 작업
 2. Build_Data : 추천 빌드, 빌드 오더
 3. Site : 사이트 제작
 
-< 사용 방법 >
+< Test >
+
+1. git clone http://khuhub.khu.ac.kr/2013104051/OSS_StarCraft2_Project.git
+2. npm install
+3. node app.js
+4. web에서 localhost:3000
+
+< 사이트 사용 방법 >
 
 1. 창모드로 플레이, 마우스 커서 가두기 켜기 선택
 2. Alt+Tab을 통해 게임 창 빠져나온 후 사이트에서 자신의 종족과 상대방 종족 선택, 상대 아이디 검색
