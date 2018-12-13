@@ -239,13 +239,21 @@ js_protoss_proficiency="상대는 프로토스 '"+protoss_proficiency+"'입니�
 js_primary_race="상대의 주 종족은 '"+primary_race+"'입니다.";
 js_win_rate="상대의 이번 시즌 전체 승률은 '"+win_rate+"'입니다.";
 
-fs.readFile('/PvP/Allin/PvP_AllIn1_DTRush.txt','utf8',function(err,data){
-  js_recommend_build_1=data;
-})
+var js_recommend_build_1;
+var js_recommend_build_2;
+js_recommend_build_1 = fs.readFileSync('./PvP/AllIn/PvP_Allin1_DTRush.txt', 'utf8').toString().split("\n");
+var build_address_1='./';
+var build_address_2='./';
+
+var strategy;
+
+build_address_1=build_address_1+myrace+'v'+enemyrace'/'+strategy+'/'+myrace+'v'+enemyrace+'_'
 
 
 
-
+fs.readFileSync('./PvP/Allin/PvP_in1_DTRush.txt','utf8');
+fs.readFileSync('./PvP/Allin/PvP_in1_DTRush.txt','utf8');
+//경로는 app.js기준
 
 res.render('index',{top: '분석 결과',
 ejs_momentum: js_momentum,
@@ -254,8 +262,11 @@ ejs_zerg_proficiency: js_zerg_proficiency,
 ejs_protoss_proficiency: js_protoss_proficiency,
 ejs_primary_race: js_primary_race,
 ejs_win_rate: js_win_rate,
-ejs_recommend_build_1: ' ',
-ejs_recommend_build_2: ' '});
+ejs_recommend_build_1: js_recommend_build_1,
+ejs_recommend_build_2: js_recommend_build_2});
+
+
+
         //build recommend command
 
         //

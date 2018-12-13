@@ -86,15 +86,21 @@
 <%=ejs_primary_race%><br>
 <%=ejs_win_rate%>
 <br>
+
+
 <h3>
 					추천빌드 1 :
 </h3>
-<%=ejs_recommend_build_1%>
+<% for (var i = 0;i < ejs_recommend_build_1.length;i++){ %>
+    <li><%= ejs_recommend_build_1[i] %></li>
+<% } %>
 <br>
 <h3>
 					추천빌드 2 :
 </h3>
-<%=ejs_recommend_build_2%>
+<% for (var i = 0;i < ejs_recommend_build_1.length;i++){ %>
+    <li><%= ejs_recommend_build_2[i] %></li>
+<% } %>
 <br>
 
 <a href="https://starcraft2.com/ko-kr/game">Official Site</a>
