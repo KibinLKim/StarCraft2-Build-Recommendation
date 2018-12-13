@@ -1,21 +1,23 @@
 module.exports = function(app,fs)
 {
      app.get('/',function(req,res){
-      var test='333333333333';
-res.render('index',{length: test});
-
-
+res.render('index',{top: '상대 정보를 입력해 주세요.',
+ejs_momentum: ' ',
+ejs_terran_proficiency: ' ',
+ejs_zerg_proficiency: ' ',
+ejs_protoss_proficiency: ' ',
+ejs_primary_race: ' ',
+ejs_win_rate: ' '});
 });
 
-app.get('/build/create',function(req,res,next){
+app.get('/recommend',function(req,res,next){
 
 
         var readline=require('readline');//입력받기 위한 모듈
         var r=readline.createInterface({input:process.stdin,output:process.stdout});//키보드 입출력 정의
         var rtfw1="http://www.rankedftw.com/search/?name=";//rtfw에서 기본 검색 url
         var rtfw2="http://www.rankedftw.com/player/"//rtfw 번호 기반 특정 플레이어 검색 url
-        var league='silver_2';
-        var region='KR';
+
         //
         var cheerio=require('cheerio');//cheerio모듈 사용
         var request=require('request');//request모듈 사용
@@ -50,20 +52,28 @@ app.get('/build/create',function(req,res,next){
         var primary_race;//주 종족
         var win_rate;//시즌 전체 승률
 
+        var region;//서버
+        var league;//리그
         var myrace;//내 종족
         var enemyrace;//상대 종족
+        var enemyname;//상대 이름
+
         var recommend;//추천빌드(운영/타이밍/올인)
         //
 //var answer=req.getParameter("name");
-var answer=req.query.name;
-answer=answer.toString();
-console.log("query"+answer);
+region=req.query.region;
+league=req.query.league;
+myrace=req.query.myRace;
+enemyrace=req.query.enemyRace;
+enemyname=req.query.enemyName;
+
+console.log("query"+enemyname);
 
 
 //        r.question("분석을 원하는 아이디를 입력하세요 : ",function(answer){//question메소드에서 callback함수 생성
           //question은 에러 제어 만들면 안된다.
           console.log("r.question processing");//callback함수란 이벤트가 왔을 때 실행되는 함수이다. answer에 검색을 원하는 아이디가 담겨있다.
-          rtfw1=rtfw1+answer;//검색 url 구성
+          rtfw1=rtfw1+enemyname;//검색 url 구성
           console.log(rtfw1);//테스트용 : 검색 url 확인
         //
         request(rtfw1,(error,response,body)=>{//rtfw url 불러오기 request 1
@@ -75,7 +85,7 @@ console.log("query"+answer);
                 username=$(this).find('.name').text().trim();//name클래스를 찾아 공백빼고 텍스트화
                 userleague=$(this).find('.league').text().trim();//league클래스를 찾아 공백빼고 텍스트화
                 userregion=$(this).find('.region').text().trim();//region클래스를 찾아 공백빼고 텍스트화
-                if((username===answer)&&(userregion===region)){//아직 리그 구현 안함-리그는 그림으로 비교
+                if((username===enemyname)&&(userregion===region)){//아직 리그 구현 안함-리그는 그림으로 비교
                 console.log(`${username}`);//테스트용 : 유저네임 출력
                 console.log(`${userregion}`);//테스트용 : 유저리전 출력
                 var usernumber=$(this).toString().slice(29,43);//rtfw에서 사용하는 사용자번호를 문자열로 넉넉히 자름
@@ -220,7 +230,21 @@ console.log("query"+answer);
         console.log("상대의 주 종족은 '"+primary_race+"'입니다.");
         console.log("상대의 이번 시즌 전체 승률은 '"+win_rate+"'입니다.");
         //
-res.render('index',{length: momentum});
+js_momentum="최근 10경기 분석 결과 현재 상대는 '"+momentum+"'입니다.";
+js_terran_proficiency="상대는 테란 '"+terran_proficiency+"'입니다.";
+js_zerg_proficiency="상대는 저그 '"+zerg_proficiency+"'입니다.";
+js_protoss_proficiency="상대는 프로토스 '"+protoss_proficiency+"'입니다.";
+js_primary_race="상대의 주 종족은 '"+primary_race+"'입니다.";
+js_win_rate="상대의 이번 시즌 전체 승률은 '"+win_rate+"'입니다.";
+
+
+res.render('index',{top: '분석 결과',
+ejs_momentum: js_momentum,
+ejs_terran_proficiency: js_terran_proficiency,
+ejs_zerg_proficiency: js_zerg_proficiency,
+ejs_protoss_proficiency: js_protoss_proficiency,
+ejs_primary_race: js_primary_race,
+ejs_win_rate: js_win_rate});
         //build recommend command
 
         //
