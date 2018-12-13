@@ -1,0 +1,76 @@
+﻿<스타2 유닛, 구조물 총 정리>
+
+< 프로토스 유닛 >                         
+
+Probe - 탐사정			Zealot - 광전사
+Adept - 사도			Sentry - 파수기
+Stalker - 추적자			Dark Templar - 암흑기사
+High Templar - 고위기사		Archon - 집정관		
+Observer - 관측선			Warp Prism - 차원분광기	
+Immortal - 불멸자			Colossus - 거신
+Disruptor - 분열기			Phoenix - 불사조		
+Void Ray - 공허포격기		Oracle - 예언자		
+Tempest - 폭풍함			Carrier - 우주모함
+Mothership - 모선			Mothership Core - 모선핵
+
+< 프로토스 구조물 >
+
+Nexus - 연결체			Assimilator - 융화소
+Pylon - 수정탑			Gateway - 관문
+Warp Gate - 차원 관문		Forge - 제련소
+Cybernectics Core - 인공제어소	Photon Cannon - 광자포
+Shield Battery - 보호막충전소	Twilight Council - 황혼의회
+Stargate - 우주관문		Robotics Facility - 로봇공학시설
+Templar Archives - 기사단기록보관소	Fleet Beacon - 함대 신호소
+Robotics Bay - 로복공학지원소	Dark Shrine - 암흑성소
+
+< 테란 유닛 >
+
+SCV - 건설로봇			MULE - 지게로봇
+Marine - 해병			Reaper - 사신
+Marauder - 불곰			Ghost - 유령
+Hellion - 화염차			Window Mine - 땅거미지뢰
+Siege Tank - 공성전차		Cyclone - 사이클론
+Thor - 토르			Viking - 바이킹
+Medivac - 의료선			Liberator - 해방선
+Raven - 밤까마귀			Banshee - 밴시
+Battlecruiser - 전투순양함
+
+< 테란 구조물 >
+
+Command Center - 사령부		Orbital Command - 궤도사령부
+Planetary Fortress - 행성요새	Refinery - 정제소
+Supply Depot - 보급고		Barracks - 병영
+Engineering Bay - 공학연구소	Bunker - 벙커
+Missile Turret - 미사일포탑		Sensor Tower - 감지탑
+Ghost Academy - 유령사관학교	Factory - 군수공장
+Armory - 무기고			Starport - 우주공항
+Fusion Core - 융합로		Tech Lab - 기술실
+Reactor - 반응로
+
+< 저그 유닛 >
+
+Larva - 애벌레			Drone - 일벌레
+Zergling - 저글링			Baneling - 맹독충
+Roach - 바퀴			Ravager - 궤멸충
+Hydralisk - 히드라리스크		Lurker - 가시지옥
+Viper - 살모사			Mutalisk - 뮤탈리스크
+Corruptor - 타락귀			Swarm Host - 군단숙주
+Locust - 식충			Infestor - 감염충
+Ultralisk - 울트라리스크		Brood Lord - 무리군주
+Broodling - 공생충			Overload - 대군주
+Overseer - 감시군주		Queen - 여왕
+Changeling - 변신수		Infested Terran - 감염된테란
+
+< 저그 구조물 >
+
+Hatchery - 부화장			Lair - 번식지
+Hive - 군락			Extractor - 추출장
+Spawning Pool - 산란못		Evolution Chamber - 진화장
+Roach Warren - 바퀴소굴		Baneling Nest - 맹독충둥지
+Spine Crawler - 가시촉수		Spore Crawler - 포자촉수
+Hydralisk Den - 히드라리스크굴	Luker Den - 가시지옥굴
+Infestation Pit - 감염구덩이		Spire - 둥지탑
+Greater Spire - 거대둥지탑		Nydus Network - 땅굴망
+Ultralisk Cavern - 울트라리스크동굴	Creep Tumor - 점막종양
+Nydus Worm - 땅굴벌레
