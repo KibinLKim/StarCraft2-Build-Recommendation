@@ -1,0 +1,24 @@
+{
+  "name": "starcraft2",
+  "version": "1.0.0",
+  "description": "< 스타크래프트2 빌드 추천 프로젝트 >\r 설명 : 대전 상대의 실력 정도에 따라 빌드를 추천해줌",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://khuhub.khu.ac.kr/2013104051/OSS_StarCraft2_Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cheerio": "^1.0.0-rc.2",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "jquery": "^3.3.1",
+    "jsdom": "^13.0.0",
+    "request": "^2.88.0"
+  }
+}

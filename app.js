@@ -46,26 +46,26 @@ app.engine('html', require('ejs').renderFile);
 var server=app.listen(3000,function(){
   console.log("Express server has started on port 3000");
 
-  });//app listen ê¿‘
+  });//app listen …L
 
 //
 /*
-var readline=require('readline');//ì…ë ¥ë°›ê¸° ìœ„í•œ ëª¨ë“ˆ
-var r=readline.createInterface({input:process.stdin,output:process.stdout});//í‚¤ë³´ë“œ ì…ì¶œë ¥ ì •ì˜
-var rtfw1="http://www.rankedftw.com/search/?name=";//rtfwì—ì„œ ê¸°ë³¸ ê²€ìƒ‰ url
-var rtfw2="http://www.rankedftw.com/player/"//rtfw ë²ˆí˜¸ ê¸°ë°˜ íŠ¹ì • í”Œë ˆì´ì–´ ê²€ìƒ‰ url
+var readline=require('readline');//ÀÔ·Â¹Ş±â À§ÇÑ ¸ğµâ
+var r=readline.createInterface({input:process.stdin,output:process.stdout});//Å°º¸µå ÀÔÃâ·Â Á¤ÀÇ
+var rtfw1="http://www.rankedftw.com/search/?name=";//rtfw¿¡¼­ ±âº» °Ë»ö url
+var rtfw2="http://www.rankedftw.com/player/"//rtfw ¹øÈ£ ±â¹İ Æ¯Á¤ ÇÃ·¹ÀÌ¾î °Ë»ö url
 var league='silver_2';
 var region='KR';
 //
-var cheerio=require('cheerio');//cheerioëª¨ë“ˆ ì‚¬ìš©
-var request=require('request');//requestëª¨ë“ˆ ì‚¬ìš©
-var fs=require('fs');//íŒŒì¼ì‹œìŠ¤í…œ ì‚¬ìš©
+var cheerio=require('cheerio');//cheerio¸ğµâ »ç¿ë
+var request=require('request');//request¸ğµâ »ç¿ë
+var fs=require('fs');//ÆÄÀÏ½Ã½ºÅÛ »ç¿ë
 //
 //request 1 variable
-var username='';//usernameë¬¸ìì—´ ì„ ì–¸
-var userleague='';//userleague ë¬¸ìì—´ ì„ ì–¸
-var userregion='';//userregion ë¬¸ìì—´ ì„ ì–¸
-var usernumber='';//usernumber ë¬¸ìì—´ ì„ ì–¸
+var username='';//username¹®ÀÚ¿­ ¼±¾ğ
+var userleague='';//userleague ¹®ÀÚ¿­ ¼±¾ğ
+var userregion='';//userregion ¹®ÀÚ¿­ ¼±¾ğ
+var usernumber='';//usernumber ¹®ÀÚ¿­ ¼±¾ğ
 //
 //request 2 variable
 
@@ -83,82 +83,82 @@ var usernumber='';//usernumber ë¬¸ìì—´ ì„ ì–¸
 
 //
 //delivering variable
-var momentum;//ê¸°ì„¸
-var terran_proficiency;//í…Œë€ ìˆ™ë ¨ë„
-var zerg_proficiency;//ì €ê·¸ ìˆ™ë ¨ë„
-var protoss_proficiency;//í”„ë¡œí† ìŠ¤ ìˆ™ë ¨ë„
-var primary_race;//ì£¼ ì¢…ì¡±
-var win_rate;//ì‹œì¦Œ ì „ì²´ ìŠ¹ë¥ 
+var momentum;//±â¼¼
+var terran_proficiency;//Å×¶õ ¼÷·Ãµµ
+var zerg_proficiency;//Àú±× ¼÷·Ãµµ
+var protoss_proficiency;//ÇÁ·ÎÅä½º ¼÷·Ãµµ
+var primary_race;//ÁÖ Á¾Á·
+var win_rate;//½ÃÁğ ÀüÃ¼ ½Â·ü
 
-var myrace;//ë‚´ ì¢…ì¡±
-var enemyrace;//ìƒëŒ€ ì¢…ì¡±
-var recommend;//ì¶”ì²œë¹Œë“œ(ìš´ì˜/íƒ€ì´ë°/ì˜¬ì¸)
+var myrace;//³» Á¾Á·
+var enemyrace;//»ó´ë Á¾Á·
+var recommend;//ÃßÃµºôµå(¿î¿µ/Å¸ÀÌ¹Ö/¿ÃÀÎ)
 //
 
-r.question("ë¶„ì„ì„ ì›í•˜ëŠ” ì•„ì´ë””ë¥¼ ì…ë ¥í•˜ì„¸ìš” : ",function(answer){//questionë©”ì†Œë“œì—ì„œ callbackí•¨ìˆ˜ ìƒì„±
-  //questionì€ ì—ëŸ¬ ì œì–´ ë§Œë“¤ë©´ ì•ˆëœë‹¤.
-  console.log("r.question processing");//callbackí•¨ìˆ˜ë€ ì´ë²¤íŠ¸ê°€ ì™”ì„ ë•Œ ì‹¤í–‰ë˜ëŠ” í•¨ìˆ˜ì´ë‹¤. answerì— ê²€ìƒ‰ì„ ì›í•˜ëŠ” ì•„ì´ë””ê°€ ë‹´ê²¨ìˆë‹¤.
-  rtfw1=rtfw1+answer;//ê²€ìƒ‰ url êµ¬ì„±
-  console.log(rtfw1);//í…ŒìŠ¤íŠ¸ìš© : ê²€ìƒ‰ url í™•ì¸
+r.question("ºĞ¼®À» ¿øÇÏ´Â ¾ÆÀÌµğ¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ",function(answer){//question¸Ş¼Òµå¿¡¼­ callbackÇÔ¼ö »ı¼º
+  //questionÀº ¿¡·¯ Á¦¾î ¸¸µé¸é ¾ÈµÈ´Ù.
+  console.log("r.question processing");//callbackÇÔ¼ö¶õ ÀÌº¥Æ®°¡ ¿ÔÀ» ¶§ ½ÇÇàµÇ´Â ÇÔ¼öÀÌ´Ù. answer¿¡ °Ë»öÀ» ¿øÇÏ´Â ¾ÆÀÌµğ°¡ ´ã°ÜÀÖ´Ù.
+  rtfw1=rtfw1+answer;//°Ë»ö url ±¸¼º
+  console.log(rtfw1);//Å×½ºÆ®¿ë : °Ë»ö url È®ÀÎ
 //
-request(rtfw1,(error,response,body)=>{//rtfw url ë¶ˆëŸ¬ì˜¤ê¸° request 1
-  if(error){throw error};//ì—ëŸ¬ì²˜ë¦¬
+request(rtfw1,(error,response,body)=>{//rtfw url ºÒ·¯¿À±â request 1
+  if(error){throw error};//¿¡·¯Ã³¸®
   console.log("request 1 processing");
-  let $ = cheerio.load(body);//rtfwê°€ bodyì´ë‹¤. $ë¡œ jqueryë°©ì‹ìœ¼ë¡œ htmlíƒìƒ‰
-    $('ul').find('a').each(function(index,elem){//ul íƒœê·¸ ì•„ë˜ aíƒœê·¸ë¥¼ ì°¾ëŠ”ë‹¤.
-        username=$(this).find('.name').text().trim();//nameí´ë˜ìŠ¤ë¥¼ ì°¾ì•„ ê³µë°±ë¹¼ê³  í…ìŠ¤íŠ¸í™”
-        userleague=$(this).find('.league').text().trim();//leagueí´ë˜ìŠ¤ë¥¼ ì°¾ì•„ ê³µë°±ë¹¼ê³  í…ìŠ¤íŠ¸í™”
-        userregion=$(this).find('.region').text().trim();//regioní´ë˜ìŠ¤ë¥¼ ì°¾ì•„ ê³µë°±ë¹¼ê³  í…ìŠ¤íŠ¸í™”
-        if((username===answer)&&(userregion===region)){//ì•„ì§ ë¦¬ê·¸ êµ¬í˜„ ì•ˆí•¨-ë¦¬ê·¸ëŠ” ê·¸ë¦¼ìœ¼ë¡œ ë¹„êµ
-        console.log(`${username}`);//í…ŒìŠ¤íŠ¸ìš© : ìœ ì €ë„¤ì„ ì¶œë ¥
-        console.log(`${userregion}`);//í…ŒìŠ¤íŠ¸ìš© : ìœ ì €ë¦¬ì „ ì¶œë ¥
-        var usernumber=$(this).toString().slice(29,43);//rtfwì—ì„œ ì‚¬ìš©í•˜ëŠ” ì‚¬ìš©ìë²ˆí˜¸ë¥¼ ë¬¸ìì—´ë¡œ ë„‰ë„‰íˆ ìë¦„
-        var localindex1=usernumber.search('/');//ì²«ë²ˆì§¸ ìŠ¬ë ˆì‹œ ë°œê²¬í•˜ëŠ” ì¸ë±ìŠ¤ ê²€ì¶œ
-        usernumber=usernumber.slice(localindex1+1);//ì•ë¶€ë¶„ ìŠ¬ë˜ì‹œ ìë¥¸ë‹¤.
-        var localindex2=usernumber.search('/')-localindex1+1;//ë‘ë²ˆì§¸ ìŠ¬ë ˆì‹œ ë°œê²¬í•˜ëŠ” ì¸ë±ìŠ¤ ê²€ì¶œ
-        usernumber=usernumber.slice(0,localindex2);//ë’·ë¶€ë¶„ ìŠ¬ë˜ì‹œ ìë¥¸ë‹¤.
-        console.log(`${usernumber}`);//í…ŒìŠ¤íŠ¸ìš© : ìœ ì €ë„˜ë²„ ì¶œë ¥
-        if(rtfw2.length>33){//í•˜ë‚˜ë¼ë„ ë¶™ì–´ìˆìœ¼ë©´
-          rtfw2=rtfw2;//ì•„ë¬´ê²ƒë„ ì•ˆí•œë‹¤.
-        }else{//ê·¸ë ‡ì§€ì•Šê³  ì•„ë¬´ê²ƒë„ ì•ˆë¶™ì–´ìˆìœ¼ë©´
-          rtfw2=rtfw2+usernumber+'/';//rtfw2 urlê°±ì‹ 
+  let $ = cheerio.load(body);//rtfw°¡ bodyÀÌ´Ù. $·Î jquery¹æ½ÄÀ¸·Î htmlÅ½»ö
+    $('ul').find('a').each(function(index,elem){//ul ÅÂ±× ¾Æ·¡ aÅÂ±×¸¦ Ã£´Â´Ù.
+        username=$(this).find('.name').text().trim();//nameÅ¬·¡½º¸¦ Ã£¾Æ °ø¹é»©°í ÅØ½ºÆ®È­
+        userleague=$(this).find('.league').text().trim();//leagueÅ¬·¡½º¸¦ Ã£¾Æ °ø¹é»©°í ÅØ½ºÆ®È­
+        userregion=$(this).find('.region').text().trim();//regionÅ¬·¡½º¸¦ Ã£¾Æ °ø¹é»©°í ÅØ½ºÆ®È­
+        if((username===answer)&&(userregion===region)){//¾ÆÁ÷ ¸®±× ±¸Çö ¾ÈÇÔ-¸®±×´Â ±×¸²À¸·Î ºñ±³
+        console.log(`${username}`);//Å×½ºÆ®¿ë : À¯Àú³×ÀÓ Ãâ·Â
+        console.log(`${userregion}`);//Å×½ºÆ®¿ë : À¯Àú¸®Àü Ãâ·Â
+        var usernumber=$(this).toString().slice(29,43);//rtfw¿¡¼­ »ç¿ëÇÏ´Â »ç¿ëÀÚ¹øÈ£¸¦ ¹®ÀÚ¿­·Î ³Ë³ËÈ÷ ÀÚ¸§
+        var localindex1=usernumber.search('/');//Ã¹¹øÂ° ½½·¹½Ã ¹ß°ßÇÏ´Â ÀÎµ¦½º °ËÃâ
+        usernumber=usernumber.slice(localindex1+1);//¾ÕºÎºĞ ½½·¡½Ã ÀÚ¸¥´Ù.
+        var localindex2=usernumber.search('/')-localindex1+1;//µÎ¹øÂ° ½½·¹½Ã ¹ß°ßÇÏ´Â ÀÎµ¦½º °ËÃâ
+        usernumber=usernumber.slice(0,localindex2);//µŞºÎºĞ ½½·¡½Ã ÀÚ¸¥´Ù.
+        console.log(`${usernumber}`);//Å×½ºÆ®¿ë : À¯Àú³Ñ¹ö Ãâ·Â
+        if(rtfw2.length>33){//ÇÏ³ª¶óµµ ºÙ¾îÀÖÀ¸¸é
+          rtfw2=rtfw2;//¾Æ¹«°Íµµ ¾ÈÇÑ´Ù.
+        }else{//±×·¸Áö¾Ê°í ¾Æ¹«°Íµµ ¾ÈºÙ¾îÀÖÀ¸¸é
+          rtfw2=rtfw2+usernumber+'/';//rtfw2 url°»½Å
         }
-        console.log(rtfw2);//í…ŒìŠ¤íŠ¸ìš© : rtfw2 ì¶œë ¥
-  }//ì´ë¦„ì„œë²„ë¦¬ê·¸ë¹„êµifì¢…ë£Œ
-  });//ul a findë¬¸ ì¢…ë£Œ
+        console.log(rtfw2);//Å×½ºÆ®¿ë : rtfw2 Ãâ·Â
+  }//ÀÌ¸§¼­¹ö¸®±×ºñ±³ifÁ¾·á
+  });//ul a find¹® Á¾·á
 
   var profileID='';
-  request(rtfw2,(error,response,body)=>{//rtfw2 url ë¶ˆëŸ¬ì˜¤ê¸° request 2
-    if(error){throw error};//ì—ëŸ¬ì²˜ë¦¬
-    console.log('request2 processing');//í…ŒìŠ¤íŠ¸ìš© : request2 ì‹¤í–‰ì—¬ë¶€ ì¶œë ¥
-    let $ = cheerio.load(body);//rtfw2ê°€ bodyì´ë‹¤. $ë¡œ jqueryë°©ì‹ìœ¼ë¡œ htmlíƒìƒ‰
-    $('.content').find('.bnet-link').each(function(index,elem){//content í´ë˜ìŠ¤ ì•ˆì˜ bnet-linkí´ë˜ìŠ¤ë¥¼ í¬í•¨í•˜ëŠ” ìš”ì†Œë¥¼ ì°¾ëŠ”ë‹¤.
-      profileID=$(this).toString().slice(62,72);//ì–»ê³ ì í•˜ëŠ” profileIDë¥¼ í¬í•¨í•˜ì—¬ ì•ë’¤ë¡œ ì ë‹¹íˆ ìë¥¸ë‹¤.
-      var localindex3=profileID.search('/');//ì²«ë²ˆì§¸ ìŠ¬ë ˆì‹œ ë°œê²¬í•˜ëŠ” ì¸ë±ìŠ¤ ê²€ì¶œ
-      profileID=profileID.slice(localindex3+1);//ì•ë¶€ë¶„ ìŠ¬ë˜ì‹œ ìë¥¸ë‹¤.
-      var localindex4=profileID.search('/')-localindex3;//ë‘ë²ˆì§¸ ìŠ¬ë ˆì‹œ ë°œê²¬í•˜ëŠ” ì¸ë±ìŠ¤ ê²€ì¶œ
-      profileID=profileID.slice(0,localindex4);//ë’·ë¶€ë¶„ ìŠ¬ë˜ì‹œ ìë¥¸ë‹¤.
-      console.log(`${profileID}`);//í…ŒìŠ¤íŠ¸ìš© : profileID ì¶œë ¥
-      //profileID=encodeURI(encodeURIComponent(profileID));//í•œê¸€ì²˜ë¦¬ë¶€
-    });//a bnetlink ì¢…ë£Œ
-//console.log(`${profileID}`);//í…ŒìŠ¤íŠ¸ìš© : profileID ì¶œë ¥
+  request(rtfw2,(error,response,body)=>{//rtfw2 url ºÒ·¯¿À±â request 2
+    if(error){throw error};//¿¡·¯Ã³¸®
+    console.log('request2 processing');//Å×½ºÆ®¿ë : request2 ½ÇÇà¿©ºÎ Ãâ·Â
+    let $ = cheerio.load(body);//rtfw2°¡ bodyÀÌ´Ù. $·Î jquery¹æ½ÄÀ¸·Î htmlÅ½»ö
+    $('.content').find('.bnet-link').each(function(index,elem){//content Å¬·¡½º ¾ÈÀÇ bnet-linkÅ¬·¡½º¸¦ Æ÷ÇÔÇÏ´Â ¿ä¼Ò¸¦ Ã£´Â´Ù.
+      profileID=$(this).toString().slice(62,72);//¾ò°íÀÚ ÇÏ´Â profileID¸¦ Æ÷ÇÔÇÏ¿© ¾ÕµÚ·Î Àû´çÈ÷ ÀÚ¸¥´Ù.
+      var localindex3=profileID.search('/');//Ã¹¹øÂ° ½½·¹½Ã ¹ß°ßÇÏ´Â ÀÎµ¦½º °ËÃâ
+      profileID=profileID.slice(localindex3+1);//¾ÕºÎºĞ ½½·¡½Ã ÀÚ¸¥´Ù.
+      var localindex4=profileID.search('/')-localindex3;//µÎ¹øÂ° ½½·¹½Ã ¹ß°ßÇÏ´Â ÀÎµ¦½º °ËÃâ
+      profileID=profileID.slice(0,localindex4);//µŞºÎºĞ ½½·¡½Ã ÀÚ¸¥´Ù.
+      console.log(`${profileID}`);//Å×½ºÆ®¿ë : profileID Ãâ·Â
+      //profileID=encodeURI(encodeURIComponent(profileID));//ÇÑ±ÛÃ³¸®ºÎ
+    });//a bnetlink Á¾·á
+//console.log(`${profileID}`);//Å×½ºÆ®¿ë : profileID Ãâ·Â
 
-var match_history_1="https://kr.api.blizzard.com/sc2/legacy/profile/3/1/"//ë§¤ì¹˜íˆìŠ¤í† ë¦¬ url ì•ë¶€ë¶„
-var match_history_2="/matches?access_token=US0q3wV6W1fIYZmRnEBbNvUrRHYZhwANIi"//ë§¤ì¹˜íˆìŠ¤í† ë¦¬ url ë’·ë¶€ë¶„
-var match_history_url=match_history_1+profileID+match_history_2;//ë§¤ì¹˜íˆìŠ¤í† ë¦¬ url êµ¬ì„±
-console.log(match_history_url);//í…ŒìŠ¤íŠ¸ìš© : ë§¤ì¹˜íˆìŠ¤í† ë¦¬ url ì¶œë ¥
+var match_history_1="https://kr.api.blizzard.com/sc2/legacy/profile/3/1/"//¸ÅÄ¡È÷½ºÅä¸® url ¾ÕºÎºĞ
+var match_history_2="/matches?access_token=US0q3wV6W1fIYZmRnEBbNvUrRHYZhwANIi"//¸ÅÄ¡È÷½ºÅä¸® url µŞºÎºĞ
+var match_history_url=match_history_1+profileID+match_history_2;//¸ÅÄ¡È÷½ºÅä¸® url ±¸¼º
+console.log(match_history_url);//Å×½ºÆ®¿ë : ¸ÅÄ¡È÷½ºÅä¸® url Ãâ·Â
 
 request(match_history_url,(error,response,body)=>{//match history request request 3
-  if(error){throw error};//ì—ëŸ¬ì²˜ë¦¬
-  console.log('request3 processing');//í…ŒìŠ¤íŠ¸ìš© : request ì‘ë™ì—¬ë¶€ ì¶œë ¥
+  if(error){throw error};//¿¡·¯Ã³¸®
+  console.log('request3 processing');//Å×½ºÆ®¿ë : request ÀÛµ¿¿©ºÎ Ãâ·Â
 
-var obj1=JSON.parse(body);//request ê²°ê³¼ë¥¼ JSON objectë¡œ ë³€í™˜
-//console.log(obj.matches [0].map);//í…ŒìŠ¤íŠ¸ìš© : í•˜ë‚˜ì— ì ‘ê·¼
-$(obj1.matches).each(function(index,match){//bodyì—ì„œ ê°ê°ì˜ ë°°ì—´ìš”ì†Œ matchë“¤ê³¼ ì¸ë±ìŠ¤ ì‚¬ìš©
-  if(match.type=='1v1'){//ê²½ê¸°íƒ€ì…ì´ 1ëŒ€1ì¸ ê²½ìš°ì—ë§Œ ê´€ì‹¬ìˆë‹¤.
-    console.log(index+":::",match.decision,match.map);//ì¸ë±ìŠ¤ì™€ ìŠ¹íŒ¨, ë§µ í‘œì‹œ
-};//if 1v1 ì¢…ë£Œ
-});//each function ì¢…ë£Œ
+var obj1=JSON.parse(body);//request °á°ú¸¦ JSON object·Î º¯È¯
+//console.log(obj.matches [0].map);//Å×½ºÆ®¿ë : ÇÏ³ª¿¡ Á¢±Ù
+$(obj1.matches).each(function(index,match){//body¿¡¼­ °¢°¢ÀÇ ¹è¿­¿ä¼Ò matchµé°ú ÀÎµ¦½º »ç¿ë
+  if(match.type=='1v1'){//°æ±âÅ¸ÀÔÀÌ 1´ë1ÀÎ °æ¿ì¿¡¸¸ °ü½ÉÀÖ´Ù.
+    console.log(index+":::",match.decision,match.map);//ÀÎµ¦½º¿Í ½ÂÆĞ, ¸Ê Ç¥½Ã
+};//if 1v1 Á¾·á
+});//each function Á¾·á
 
 var ladder_1="https://kr.api.blizzard.com/sc2/legacy/profile/3/1/"
 var ladder_2="/ladders?access_token=US0q3wV6W1fIYZmRnEBbNvUrRHYZhwANIi";
@@ -167,8 +167,8 @@ console.log(ladder_url);
 request(ladder_url,(error,response,body)=>{//ladder request request 4
   if(error){throw error};
   console.log('request4 processing');
-  var obj2=JSON.parse(body);//request ê²°ê³¼ë¥¼ JSON objectë¡œ ë³€í™˜
-//  console.log(obj2.currentSeason [2].ladder[0].wins);//í…ŒìŠ¤íŠ¸ìš© : í•˜ë‚˜ì— ì ‘ê·¼
+  var obj2=JSON.parse(body);//request °á°ú¸¦ JSON object·Î º¯È¯
+//  console.log(obj2.currentSeason [2].ladder[0].wins);//Å×½ºÆ®¿ë : ÇÏ³ª¿¡ Á¢±Ù
   var wins=obj2.currentSeason[2].ladder[0].wins;
   var losses=obj2.currentSeason[2].ladder[0].losses;
 win_rate=wins/(wins+losses);
@@ -183,8 +183,8 @@ console.log(profile_url);
 request(profile_url,(error,response,body)=>{//profile request request 5
   if(error){throw error};
   console.log('request5 processing');
-  var obj3=JSON.parse(body);//request ê²°ê³¼ë¥¼ JSON objectë¡œ ë³€í™˜
-  //console.log(obj2.currentSeason [1].ladder[0].wins);//í…ŒìŠ¤íŠ¸ìš© : í•˜ë‚˜ì— ì ‘ê·¼
+  var obj3=JSON.parse(body);//request °á°ú¸¦ JSON object·Î º¯È¯
+  //console.log(obj2.currentSeason [1].ladder[0].wins);//Å×½ºÆ®¿ë : ÇÏ³ª¿¡ Á¢±Ù
 primary_race=obj3.career.primaryRace;
     //console.log(primary_race);
   var terran_level=obj3.swarmLevels.terran.level;
@@ -196,70 +196,70 @@ primary_race=obj3.career.primaryRace;
       //console.log(protoss_level);
 
 //build recommend algorithm
-var matchresults=[];//ë§¤ì¹˜ê²°ê³¼ ë‹´ì„ ë°°ì—´ ì„ ì–¸
-var momentum_win=0;//ìµœê·¼ 10ê²½ê¸° ì¤‘ ìŠ¹ìˆ˜ ì´ˆê¸°í™”
-for (var i=0;i<25;i++){//ë§¤ì¹˜íˆìŠ¤í† ë¦¬ëŠ” ìµœëŒ€ 25ê°œ
-  if(obj1.matches[i].type=='1v1'){//1v1ì—ë§Œ ê´€ì‹¬ìˆë‹¤.
-  matchresults.push(obj1.matches[i].decision);//ë°°ì—´ ëì— ê²°ê³¼ ì‚½ì…
-  if((matchresults.length<11)&&(obj1.matches[i].decision=='Win')){//ìµœê·¼ 10ê²½ê¸°ì—ì„œ ìŠ¹ë¦¬í•œ ê²½ìš°
-    momentum_win=momentum_win+1;//ê·¸ ìŠ¹ìˆ˜ë¥¼ ì¹´ìš´íŠ¸í•œë‹¤.
-  }//if length11 ì¢…ë£Œ
-}//obj1 1v1 ì¢…ë£Œ
-}//for i 25 ì¢…ë£Œ
-//console.log(matchresults);//í…ŒìŠ¤íŠ¸ìš© : matchresults ì¶œë ¥
-//console.log(momentum_win);//í…ŒìŠ¤íŠ¸ìš© : momentum_win ì¶œë ¥
-if(momentum_win>=7){//7ìŠ¹ ì´ìƒì´ë©´ ìƒìŠ¹ì„¸
-momentum='ìƒìŠ¹ì„¸';
+var matchresults=[];//¸ÅÄ¡°á°ú ´ãÀ» ¹è¿­ ¼±¾ğ
+var momentum_win=0;//ÃÖ±Ù 10°æ±â Áß ½Â¼ö ÃÊ±âÈ­
+for (var i=0;i<25;i++){//¸ÅÄ¡È÷½ºÅä¸®´Â ÃÖ´ë 25°³
+  if(obj1.matches[i].type=='1v1'){//1v1¿¡¸¸ °ü½ÉÀÖ´Ù.
+  matchresults.push(obj1.matches[i].decision);//¹è¿­ ³¡¿¡ °á°ú »ğÀÔ
+  if((matchresults.length<11)&&(obj1.matches[i].decision=='Win')){//ÃÖ±Ù 10°æ±â¿¡¼­ ½Â¸®ÇÑ °æ¿ì
+    momentum_win=momentum_win+1;//±× ½Â¼ö¸¦ Ä«¿îÆ®ÇÑ´Ù.
+  }//if length11 Á¾·á
+}//obj1 1v1 Á¾·á
+}//for i 25 Á¾·á
+//console.log(matchresults);//Å×½ºÆ®¿ë : matchresults Ãâ·Â
+//console.log(momentum_win);//Å×½ºÆ®¿ë : momentum_win Ãâ·Â
+if(momentum_win>=7){//7½Â ÀÌ»óÀÌ¸é »ó½Â¼¼
+momentum='»ó½Â¼¼';
 }
-if((momentum_win<7)&&(momentum_win>=4)){//4ìŠ¹ì´ìƒ 7ìŠ¹ë¯¸ë§Œì´ë©´ ì •ì²´
-momentum='ì •ì²´ì¤‘';
+if((momentum_win<7)&&(momentum_win>=4)){//4½ÂÀÌ»ó 7½Â¹Ì¸¸ÀÌ¸é Á¤Ã¼
+momentum='Á¤Ã¼Áß';
 }
-if(momentum_win<4){//4ìŠ¹ ë¯¸ë§Œì´ë©´ í•˜ë½ì„¸
-momentum='í•˜ë½ì„¸';
+if(momentum_win<4){//4½Â ¹Ì¸¸ÀÌ¸é ÇÏ¶ô¼¼
+momentum='ÇÏ¶ô¼¼';
 }
-//console.log(momentum);//í…ŒìŠ¤íŠ¸ìš© : ê¸°ì„¸ ì¶œë ¥
+//console.log(momentum);//Å×½ºÆ®¿ë : ±â¼¼ Ãâ·Â
 
-if(terran_level<50){//í…Œë€ ë ˆë²¨ 50 ì•ˆë˜ë©´
-  terran_proficiency='ë¹„ìˆ™ë ¨ì'//í…Œë€ ë¹„ìˆ™ë ¨ì
+if(terran_level<50){//Å×¶õ ·¹º§ 50 ¾ÈµÇ¸é
+  terran_proficiency='ºñ¼÷·ÃÀÚ'//Å×¶õ ºñ¼÷·ÃÀÚ
 } else{
-  terran_proficiency='ìˆ™ë ¨ì'
+  terran_proficiency='¼÷·ÃÀÚ'
 }
-if(zerg_level<50){//ì €ê·¸ ë ˆë²¨ 50 ì•ˆë˜ë©´
-  zerg_proficiency='ë¹„ìˆ™ë ¨ì'//ì €ê·¸ ë¹„ìˆ™ë ¨ì
+if(zerg_level<50){//Àú±× ·¹º§ 50 ¾ÈµÇ¸é
+  zerg_proficiency='ºñ¼÷·ÃÀÚ'//Àú±× ºñ¼÷·ÃÀÚ
 } else{
-  zerg_proficiency='ìˆ™ë ¨ì'
+  zerg_proficiency='¼÷·ÃÀÚ'
 }
-if(protoss_level<50){//í”„ë¡œí† ìŠ¤ ë ˆë²¨ 50 ì•ˆë˜ë©´
-  protoss_proficiency='ë¹„ìˆ™ë ¨ì'//í”„ë¡œí† ìŠ¤ ë¹„ìˆ™ë ¨ì
+if(protoss_level<50){//ÇÁ·ÎÅä½º ·¹º§ 50 ¾ÈµÇ¸é
+  protoss_proficiency='ºñ¼÷·ÃÀÚ'//ÇÁ·ÎÅä½º ºñ¼÷·ÃÀÚ
 } else{
-  protoss_proficiency='ìˆ™ë ¨ì'
+  protoss_proficiency='¼÷·ÃÀÚ'
 }
 //
 //system message part
-console.log("ìµœê·¼ 10ê²½ê¸° ë¶„ì„ ê²°ê³¼ í˜„ì¬ ìƒëŒ€ëŠ” '"+momentum+"'ì…ë‹ˆë‹¤.");
-console.log("ìƒëŒ€ëŠ” í…Œë€ '"+terran_proficiency+"'ì…ë‹ˆë‹¤.");
-console.log("ìƒëŒ€ëŠ” ì €ê·¸ '"+zerg_proficiency+"'ì…ë‹ˆë‹¤.");
-console.log("ìƒëŒ€ëŠ” í”„ë¡œí† ìŠ¤ '"+protoss_proficiency+"'ì…ë‹ˆë‹¤.");
-console.log("ìƒëŒ€ì˜ ì£¼ ì¢…ì¡±ì€ '"+primary_race+"'ì…ë‹ˆë‹¤.");
-console.log("ìƒëŒ€ì˜ ì´ë²ˆ ì‹œì¦Œ ì „ì²´ ìŠ¹ë¥ ì€ '"+win_rate+"'ì…ë‹ˆë‹¤.");
+console.log("ÃÖ±Ù 10°æ±â ºĞ¼® °á°ú ÇöÀç »ó´ë´Â '"+momentum+"'ÀÔ´Ï´Ù.");
+console.log("»ó´ë´Â Å×¶õ '"+terran_proficiency+"'ÀÔ´Ï´Ù.");
+console.log("»ó´ë´Â Àú±× '"+zerg_proficiency+"'ÀÔ´Ï´Ù.");
+console.log("»ó´ë´Â ÇÁ·ÎÅä½º '"+protoss_proficiency+"'ÀÔ´Ï´Ù.");
+console.log("»ó´ëÀÇ ÁÖ Á¾Á·Àº '"+primary_race+"'ÀÔ´Ï´Ù.");
+console.log("»ó´ëÀÇ ÀÌ¹ø ½ÃÁğ ÀüÃ¼ ½Â·üÀº '"+win_rate+"'ÀÔ´Ï´Ù.");
 //
 //build recommend command
 
 //
 
 console.log('request5 done');
-});//request5ì¢…ë£Œ
+});//request5Á¾·á
 console.log('request4 done');
-});//request4ì¢…ë£Œ
+});//request4Á¾·á
 console.log('request3 done');
-});//request3ì¢…ë£Œ
+});//request3Á¾·á
 console.log('request2 done');
-});//request2ì¢…ë£Œ
+});//request2Á¾·á
 console.log('request1 done');
-});//request1 ì¢…ë£Œ
+});//request1 Á¾·á
 
 console.log('r.question done');
 //console.log(terran_level);
-r.close()//ë°˜ë“œì‹œ closeë¥¼ í•´ì¤˜ì•¼ í•œë‹¤.ì‚¬ìš©ì´ ë‹¤ ëë‚œ í›„ì—.
-});//r.question ë
+r.close()//¹İµå½Ã close¸¦ ÇØÁà¾ß ÇÑ´Ù.»ç¿ëÀÌ ´Ù ³¡³­ ÈÄ¿¡.
+});//r.question ³¡
 */
