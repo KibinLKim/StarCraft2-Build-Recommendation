@@ -250,7 +250,7 @@ if((myrace=='protoss')&&(enemyrace=='protoss')){
 if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
   strategy='Economic';
 }else if(momentum=='상승세'||protoss_proficiency=='숙련자'){
-  strategy='Allin';
+  strategy='AllIn';
 }else{
   strategy='TimingAttack';
 }
@@ -258,7 +258,7 @@ if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
   if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
     strategy='economic';
   }else if(momentum=='상승세'||protoss_proficiency=='숙련자'){
-    strategy='Allin';
+    strategy='AllIn';
   }else{
     strategy='TimingAttack';
   }
@@ -266,7 +266,7 @@ if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
   if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
     strategy='economic';
   }else if(momentum=='상승세'||protoss_proficiency=='숙련자'){
-    strategy='Allin';
+    strategy='AllIn';
   }else{
     strategy='TimingAttack';
   }
@@ -274,7 +274,7 @@ if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
   if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
     strategy='economic';
   }else if(momentum=='상승세'||protoss_proficiency=='숙련자'){
-    strategy='Allin';
+    strategy='AllIn';
   }else{
     strategy='TimingAttack';
   }
@@ -282,7 +282,7 @@ if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
   if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
     strategy='economic';
   }else if(momentum=='상승세'||protoss_proficiency=='숙련자'){
-    strategy='Allin';
+    strategy='AllIn';
   }else{
     strategy='TimingAttack';
   }
@@ -290,7 +290,7 @@ if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
   if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
     strategy='economic';
   }else if(momentum=='상승세'||protoss_proficiency=='숙련자'){
-    strategy='Allin';
+    strategy='AllIn';
   }else{
     strategy='TimingAttack';
   }
@@ -298,7 +298,7 @@ if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
   if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
     strategy='economic';
   }else if(momentum=='상승세'||protoss_proficiency=='숙련자'){
-    strategy='Allin';
+    strategy='AllIn';
   }else{
     strategy='TimingAttack';
   }
@@ -306,7 +306,7 @@ if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
   if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
     strategy='economic';
   }else if(momentum=='상승세'||protoss_proficiency=='숙련자'){
-    strategy='Allin';
+    strategy='AllIn';
   }else{
     strategy='TimingAttack';
   }
@@ -314,7 +314,7 @@ if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
   if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
     strategy='Economic';
   }else if(momentum=='상승세'||protoss_proficiency=='숙련자'){
-    strategy='Allin';
+    strategy='AllIn';
   }else{
     strategy='TimingAttack';
   }
