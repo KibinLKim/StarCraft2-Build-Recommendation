@@ -18,7 +18,6 @@ Branch를 master + 3가지(API, Build_Data, Site)로 나눠서 작업
 
 < 21일까지 Test 가능한 AWS 주소 >
 13.124.122.119
-이대로 접속하면 됩니다.
 
 < 사이트 사용 방법 >
 
