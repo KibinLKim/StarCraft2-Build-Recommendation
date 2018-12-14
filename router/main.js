@@ -256,7 +256,7 @@ if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
 }
 }else if((myrace=='protoss')&&(enemyrace=='terran')){
   if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
-    strategy='economic';
+    strategy='Economic';
   }else if(momentum=='상승세'||protoss_proficiency=='숙련자'){
     strategy='AllIn';
   }else{
@@ -264,7 +264,7 @@ if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
   }
 }else if((myrace=='protoss')&&(enemyrace=='zerg')){
   if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
-    strategy='economic';
+    strategy='Economic';
   }else if(momentum=='상승세'||protoss_proficiency=='숙련자'){
     strategy='AllIn';
   }else{
@@ -272,7 +272,7 @@ if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
   }
 }else if((myrace=='terran')&&(enemyrace=='protoss')){
   if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
-    strategy='economic';
+    strategy='Economic';
   }else if(momentum=='상승세'||protoss_proficiency=='숙련자'){
     strategy='AllIn';
   }else{
@@ -280,7 +280,7 @@ if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
   }
 }else if((myrace=='terran')&&(enemyrace=='terran')){
   if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
-    strategy='economic';
+    strategy='Economic';
   }else if(momentum=='상승세'||protoss_proficiency=='숙련자'){
     strategy='AllIn';
   }else{
@@ -288,7 +288,7 @@ if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
   }
 }else if((myrace=='terran')&&(enemyrace=='zerg')){
   if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
-    strategy='economic';
+    strategy='Economic';
   }else if(momentum=='상승세'||protoss_proficiency=='숙련자'){
     strategy='AllIn';
   }else{
@@ -296,7 +296,7 @@ if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
   }
 }else if((myrace=='zerg')&&(enemyrace=='protoss')){
   if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
-    strategy='economic';
+    strategy='Economic';
   }else if(momentum=='상승세'||protoss_proficiency=='숙련자'){
     strategy='AllIn';
   }else{
@@ -304,7 +304,7 @@ if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
   }
 }else if((myrace=='zerg')&&(enemyrace=='terran')){
   if(momentum=='하락세'||protoss_proficiency=='비숙련자'){
-    strategy='economic';
+    strategy='Economic';
   }else if(momentum=='상승세'||protoss_proficiency=='숙련자'){
     strategy='AllIn';
   }else{
