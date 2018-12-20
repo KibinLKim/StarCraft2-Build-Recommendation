@@ -49,3 +49,7 @@ Branch를 master + 3가지(API, Build_Data, Site)로 나눠서 작업
 3. 잘 동작하는 테스트용 ID : Stats(김대엽 선수), Rogue(이병렬 선수), rogue(일반인)
 
 4. 한글아이디 검색은 구현하지 않아서 불가능하다.
+
+<2018.12.20 추가>
+블리자드 API access token의 주기적인 랜덤교체로 router/main.js에서 각 request url 수정함. 
+이후 access token의 교체가 또 발생하면 관리자의 access token을 발급받아야함.

@@ -122,7 +122,7 @@ console.log("query"+enemyname);
         //console.log(`${profileID}`);//테스트용 : profileID 출력
 
         var match_history_1="https://kr.api.blizzard.com/sc2/legacy/profile/3/1/"//매치히스토리 url 앞부분
-        var match_history_2="/matches?access_token=US115TlhyMaYe3d3v4t6j17Umw1CfsvCIV"//매치히스토리 url 뒷부분
+        var match_history_2="/matches?access_token=USCbkLNyTur6a4bb27UdHIfTeH6wlA68HY"//매치히스토리 url 뒷부분
         var match_history_url=match_history_1+profileID+match_history_2;//매치히스토리 url 구성
         console.log(match_history_url);//테스트용 : 매치히스토리 url 출력
 
@@ -139,7 +139,7 @@ console.log("query"+enemyname);
         });//each function 종료
 
         var ladder_1="https://kr.api.blizzard.com/sc2/legacy/profile/3/1/"
-        var ladder_2="/ladders?access_token=US115TlhyMaYe3d3v4t6j17Umw1CfsvCIV";
+        var ladder_2="/ladders?access_token=USCbkLNyTur6a4bb27UdHIfTeH6wlA68HY";
         var ladder_url=ladder_1+profileID+ladder_2;
         console.log(ladder_url);
         request(ladder_url,(error,response,body)=>{//ladder request request 4
@@ -156,7 +156,7 @@ console.log("query"+enemyname);
             //console.log(win_rate);
 
         var profile_1="https://kr.api.blizzard.com/sc2/legacy/profile/3/1/";
-        var profile_2="?access_token=US115TlhyMaYe3d3v4t6j17Umw1CfsvCIV";
+        var profile_2="?access_token=USCbkLNyTur6a4bb27UdHIfTeH6wlA68HY";
         var profile_url=profile_1+profileID+profile_2;
         console.log(profile_url);
         request(profile_url,(error,response,body)=>{//profile request request 5
