@@ -11,13 +11,10 @@ Branch를 master + 3가지(API, Build_Data, Site)로 나눠서 작업
 
 < Local Test >
 
-1. git clone http://khuhub.khu.ac.kr/2013104051/OSS_StarCraft2_Project.git
+1. git clone https://github.com/KibinLKim/StarCraft2-Build-Recommendation.git 
 2. npm install
 3. node app.js
 4. web에서 localhost:3000
-
-< 21일까지 Test 가능한 AWS 주소 >
-13.124.122.119
 
 < 사이트 사용 방법 >
 
